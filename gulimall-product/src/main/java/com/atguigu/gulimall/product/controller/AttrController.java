@@ -3,7 +3,8 @@ package com.atguigu.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.atguigu.gulimall.product.entity.AttrEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atguigu.gulimall.produce.entity.AttrEntity;
-import com.atguigu.gulimall.produce.service.AttrService;
+
+import com.atguigu.gulimall.product.service.AttrService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
 
@@ -35,7 +36,7 @@ public class AttrController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("produce:attr:list")
+    //@Requirespermissions("produce:attr:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = attrService.queryPage(params);
 
@@ -47,7 +48,7 @@ public class AttrController {
      * 信息
      */
     @RequestMapping("/info/{attrId}")
-    @RequiresPermissions("produce:attr:info")
+    //@Requirespermissions("produce:attr:info")
     public R info(@PathVariable("attrId") Long attrId){
 		AttrEntity attr = attrService.getById(attrId);
 
@@ -58,7 +59,7 @@ public class AttrController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("produce:attr:save")
+    //@Requirespermissions("produce:attr:save")
     public R save(@RequestBody AttrEntity attr){
 		attrService.save(attr);
 
@@ -69,7 +70,7 @@ public class AttrController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("produce:attr:update")
+    //@Requirespermissions("produce:attr:update")
     public R update(@RequestBody AttrEntity attr){
 		attrService.updateById(attr);
 
@@ -80,7 +81,7 @@ public class AttrController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("produce:attr:delete")
+    //@Requirespermissions("produce:attr:delete")
     public R delete(@RequestBody Long[] attrIds){
 		attrService.removeByIds(Arrays.asList(attrIds));
 

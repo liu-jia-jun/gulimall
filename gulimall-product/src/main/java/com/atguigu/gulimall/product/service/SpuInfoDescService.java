@@ -1,8 +1,8 @@
-package com.atguigu.gulimall.produce.service;
+package com.atguigu.gulimall.product.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.common.utils.PageUtils;
-import com.atguigu.gulimall.produce.entity.SpuInfoDescEntity;
+import com.atguigu.gulimall.product.entity.SpuInfoDescEntity;
 
 import java.util.Map;
 

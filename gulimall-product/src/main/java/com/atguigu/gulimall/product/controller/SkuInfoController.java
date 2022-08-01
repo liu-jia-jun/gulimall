@@ -1,20 +1,14 @@
 package com.atguigu.gulimall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.produce.entity.SkuInfoEntity;
-import com.atguigu.gulimall.produce.service.SkuInfoService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.product.entity.SkuInfoEntity;
+import com.atguigu.gulimall.product.service.SkuInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -35,7 +29,7 @@ public class SkuInfoController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("produce:skuinfo:list")
+    //@Requirespermissions("produce:skuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuInfoService.queryPage(params);
 
@@ -47,7 +41,7 @@ public class SkuInfoController {
      * 信息
      */
     @RequestMapping("/info/{skuId}")
-    @RequiresPermissions("produce:skuinfo:info")
+    //@Requirespermissions("produce:skuinfo:info")
     public R info(@PathVariable("skuId") Long skuId){
 		SkuInfoEntity skuInfo = skuInfoService.getById(skuId);
 
@@ -58,7 +52,7 @@ public class SkuInfoController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("produce:skuinfo:save")
+    //@Requirespermissions("produce:skuinfo:save")
     public R save(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.save(skuInfo);
 
@@ -69,7 +63,7 @@ public class SkuInfoController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("produce:skuinfo:update")
+    //@Requirespermissions("produce:skuinfo:update")
     public R update(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.updateById(skuInfo);
 
@@ -80,7 +74,7 @@ public class SkuInfoController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("produce:skuinfo:delete")
+    //@Requirespermissions("produce:skuinfo:delete")
     public R delete(@RequestBody Long[] skuIds){
 		skuInfoService.removeByIds(Arrays.asList(skuIds));
 
