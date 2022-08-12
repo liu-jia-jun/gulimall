@@ -6,11 +6,8 @@ import java.util.Map;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 import com.atguigu.gulimall.coupon.entity.CouponEntity;
 import com.atguigu.gulimall.coupon.service.CouponService;
@@ -30,6 +27,9 @@ import com.atguigu.gulimall.coupon.service.CouponService;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+
+
 
     /**
      * 列表

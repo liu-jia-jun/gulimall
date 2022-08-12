@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: gulimall-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: product-router
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/$\{segment}
+
+        - id: admin-router
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            # 这个地方我们默认 从前端发过来的 请求默认带一个 api前缀
+            - RewritePath=/api/?(?<segment>.*),/renren-fast/$\{segment}
+
+
+
+
