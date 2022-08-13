@@ -4,6 +4,13 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: third_party_route
+          uri: lb://gulimall-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/?(?<segment>.*),/$\{segment}
+
         - id: product-router
           uri: lb://gulimall-product
           predicates:

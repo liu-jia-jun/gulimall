@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    alicloud:
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: gulimall12138
+      access-key: LTAI5tH7icmX7TDMXZTrskHb
+      secret-key: gR1nd8ES2gBeTuH70t2G1Z3usUWL9T
